@@ -30,11 +30,13 @@ Route::get('/shopping-cart', [
 
 Route::get('/checkout', [
    'uses' => 'TestController@getCheckout',
-   'as' =>'checkout'
+   'as' =>'checkout',
+   'middleware' => 'auth'
 ]);
 Route::post('/checkout', [
    'uses' => 'TestController@postCheckout',
-   'as' =>'checkout'
+   'as' =>'checkout',
+   'middleware' => 'auth'
 ]);
 
 

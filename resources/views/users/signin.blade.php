@@ -24,6 +24,7 @@
             <button type="submit" class="btn btn-primary">Login</button>
         {{csrf_field()}}
         </form>
+    <p>Don't have an account? <a href="{{route('users.signup')}}">Register instead!</a></p>
 
     </div>
 </div>

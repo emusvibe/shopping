@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Test;
 use App\Cart;
+use App\User;
+use App\Order;
 use Session;
 use Auth;
 use Stripe\Stripe;
@@ -61,12 +64,19 @@ class TestController extends Controller
             
             try
             {
-                Charge::create(array(
+               $charge = Charge::create(array(
                     "amount" => $cart->totalPrice * 100,
                     "currency" => 'zar',
                     "source" => 'tok_mastercard',
                     "description" => 'Test charge'
                 ));
+                $order = new Order();
+                $order->cart = serialize($cart);
+                $order->address = $request->input('address');
+                $order->name = $request->input('name');
+                $order->payment_id = $charge->id;
+                Auth::user()->orders()->save($order);
+
             } 
             catch(\Exception $e)
             {
