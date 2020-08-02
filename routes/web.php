@@ -23,6 +23,18 @@ Route::get('/add-to-cart/{id}', [
    'as' =>'test.addToCart'
     ]);
 
+Route::get('/reduce/{id}', [
+   'uses' => 'TestController@getReduceByOne',
+   'as' =>'test.reduceByOne'
+    ]);
+
+Route::get('/remove/{id}', [
+  'uses' => 'TestController@getRemoveItem',
+    'as' =>'test.remove'
+    ]);
+
+
+
 Route::get('/shopping-cart', [
    'uses' => 'TestController@getCart',
    'as' =>'test.shoppingCart'
