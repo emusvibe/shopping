@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Test extends Model
 {
-    protected $fillable =['imagePath', 'tile', 'description','price'];
+    protected $fillable =['imagePath', 'title', 'description','price'];
 }

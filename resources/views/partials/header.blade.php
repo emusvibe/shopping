@@ -8,7 +8,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-    <a class="navbar-brand" href="{{route('test.index')}}">Brand</a>
+    <a class="navbar-brand" href="{{route('test.index')}}"><strong>Order Tests</strong></a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
